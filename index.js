@@ -12,13 +12,14 @@ function findRepos(query) {
     })
     .then(responseJson => displayResults(responseJson))
     .catch(err => {
-        $("js-error-message").text(`Something went wrong: ${err.message}`);
+        $("#js-error-message").text(`Something went wrong: ${err.message}`);
     });
 }
 
 function displayResults(responseJson) {
     console.log(responseJson);
     $("#js-results-list").empty();
+    $("#js-error-message").empty();
     for (let i =0; i < responseJson.length; i++) {
         $("#js-results-list").append(
             `<li>
